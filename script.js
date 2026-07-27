@@ -1,6 +1,6 @@
-// ==========================
+// =========================
 // Variables
-// ==========================
+// =========================
 
 let perfectTenUnlocked = false;
 let championUnlocked = false;
