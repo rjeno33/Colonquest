@@ -305,7 +305,7 @@ function checkLevelUps() {
     if (score >= 40 && !colonCadetUnlocked) {
 
         showAchievement(
-            "⭐ Level Up!",
+            "Level Up!",
             "You are now a Colon Cadet. Great work, keep going!",
             "<i class='fa-solid fa-angles-up'></i>"
         );
@@ -316,9 +316,9 @@ function checkLevelUps() {
     if (score >= 70 && !bowelBaronUnlocked) {
 
         showAchievement(
-            "⭐ Level Up!",
+            "Level Up!",
             "You are now a Bowel Baron!",
-            "<i class='fa-solid fa-crown'></i>"
+            "<i class='fa-solid fa-chess-rook'></i>"
         );
 
         bowelBaronUnlocked = true;
@@ -327,7 +327,7 @@ function checkLevelUps() {
     if (score >= 130 && !prepPaladinUnlocked) {
 
         showAchievement(
-            "⭐ Level Up!",
+            " Level Up!",
             "You are now a Prep Paladin!",
             "<i class='fa-solid fa-shield-halved'></i>"
         );
@@ -338,9 +338,9 @@ function checkLevelUps() {
     if (score >= 200 && !grandPoobahUnlocked) {
 
         showAchievement(
-            "👑 Level Up!",
+            "Level Up!",
             "You are now the Grand Poobah of Prep!",
-            "<i class='fa-solid fa-trophy'></i>"
+            "<i class='fa-solid fa-crown'></i>"
         );
 
         grandPoobahUnlocked = true;
@@ -1231,3 +1231,9 @@ window.addEventListener("load",function(){
     initialiseStarRating();
 
 });
+
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register("service-worker.js");
+
+}
