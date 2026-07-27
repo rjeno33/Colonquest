@@ -1,4 +1,4 @@
-const CACHE_NAME = "companion-v1";
+const CACHE_NAME = "companion-v2";
 
 const urlsToCache = [
   "./",
