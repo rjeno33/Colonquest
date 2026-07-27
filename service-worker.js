@@ -1,4 +1,4 @@
-const CACHE_NAME = "companion-v3";
+const CACHE_NAME = "colonquest-v1";
 
 const urlsToCache = [
   "./",
