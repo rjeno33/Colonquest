@@ -1,10 +1,13 @@
-const CACHE_NAME = "companion-v2";
+const CACHE_NAME = "companion-v3";
 
 const urlsToCache = [
   "./",
   "./index.html",
   "./style.css",
-  "./script.js"
+  "./script.js",
+  "./manifest.json",
+  "./prepcompanion-logo-192.png",
+  "./prepcompanion-logo-512.png"
 ];
 
 // Install
