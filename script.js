@@ -12,6 +12,10 @@ let dietUnlocked = false;
 let prepUnlocked = false;
 let fastUnlocked = false;
 
+let colonCadetUnlocked = false;
+let bowelBaronUnlocked = false;
+let prepPaladinUnlocked = false;
+let grandPoobahUnlocked = false;
 
 let rating = 0;
 
@@ -293,25 +297,75 @@ function showCompletionPage() {
 
 }
 
+
+// Level Ups //
+
+function checkLevelUps() {
+
+    if (score >= 40 && !colonCadetUnlocked) {
+
+        showAchievement(
+            "⭐ Level Up!",
+            "You are now a Colon Cadet. Great work, keep going!",
+            "<i class='fa-solid fa-angles-up'></i>"
+        );
+
+        colonCadetUnlocked = true;
+    }
+
+    if (score >= 70 && !bowelBaronUnlocked) {
+
+        showAchievement(
+            "⭐ Level Up!",
+            "You are now a Bowel Baron!",
+            "<i class='fa-solid fa-crown'></i>"
+        );
+
+        bowelBaronUnlocked = true;
+    }
+
+    if (score >= 130 && !prepPaladinUnlocked) {
+
+        showAchievement(
+            "⭐ Level Up!",
+            "You are now a Prep Paladin!",
+            "<i class='fa-solid fa-shield-halved'></i>"
+        );
+
+        prepPaladinUnlocked = true;
+    }
+
+    if (score >= 200 && !grandPoobahUnlocked) {
+
+        showAchievement(
+            "👑 Level Up!",
+            "You are now the Grand Poobah of Prep!",
+            "<i class='fa-solid fa-trophy'></i>"
+        );
+
+        grandPoobahUnlocked = true;
+    }
+
+}
 // Update level //
 
 function updateLevel(){
 
 let level="Prep Padawan";
 
-if(score>=30){
+if(score>=40){
 level="Colon Cadet";
 }
 
-if(score>=90){
+if(score>=70){
 level="Bowel Baron";
 }
 
-if(score>=150){
+if(score>=130){
 level="Prep Paladin";
 }
 
-if(score>=230){
+if(score>=200){
 level="Grand Poobah of Prep";
 }
 
@@ -398,7 +452,7 @@ function resetPlan() {
     completedTasks = 0;
 
     updateLevel();
-
+    
     perfectTenUnlocked = false;
     championUnlocked = false;
     waterUnlocked = false;
@@ -406,6 +460,10 @@ function resetPlan() {
     dietUnlocked = false;
     prepUnlocked = false;
     fastUnlocked = false;
+    colonCadetUnlocked = false;
+bowelBaronUnlocked = false;
+prepPaladinUnlocked = false;
+grandPoobahUnlocked = false;
  
 
     Object.keys(taskProgress).forEach(function(key) {
@@ -522,6 +580,7 @@ function addCheckboxListeners() {
             progressFill.style.width = percentage + "%";
 
             checkAchievements();
+            checkLevelUps();
             updateLevel();
             checkCompletion();
            completion.style.display="block";
@@ -565,7 +624,7 @@ function checkAchievements() {
          taskProgress.water === taskTotals.water && !waterUnlocked) {
 
         showAchievement("Hydration Hero",
-                        "You drank every litre",
+                        "You drank every drop",
                          "<i class ='fa-solid fa-droplet'></i>");
          waterUnlocked = true;
     }
@@ -626,7 +685,7 @@ function showAchievement(title, text, icon) {
     achievementText.textContent = text;
     achievementIcon.innerHTML = icon;
 
-achievementCabinet.classList.remove("closed");
+
 achievementArrow.innerHTML = "<i class='fa-regular fa-square-caret-up'></i>";
     achievementPopup.classList.remove("hidden");
     achievementPopup.classList.add("show");
@@ -797,6 +856,11 @@ function addDayBefore(date, appointmentHour) {
                 id: dayId + "-prep",
                 text: "19:00 Mix and start drinking your first dose of Plenvu",
                 type: "prep"
+            },
+            {
+                id: dayId + "-prep1-water",
+                text: "Drink at least 500ml of water after your first dose of Plenvu",
+                type: "water"
             }
 
         ];
@@ -890,21 +954,37 @@ function addAppointmentDay(date, appointmentHour) {
 
         });
 
+tasks.push({
+
+    id: dayId + "-prep1-water",
+    text: "Drink at least 500ml of water after your first dose of Plenvu",
+    type: "water"
+
+});
+
     }
 
-    tasks.push({
+tasks.push({
 
-        id: dayId + "-prep2",
-        text:
-            secondDose.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit"
-            }) +
-            " Mix and start drinking your second dose of Plenvu",
+    id: dayId + "-prep2",
+    text:
+        secondDose.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit"
+        }) +
+        " Mix and start drinking your second dose of Plenvu",
 
-        type: "prep"
+    type: "prep"
 
-    });
+});
+
+tasks.push({
+
+    id: dayId + "-prep2-water",
+    text: "Drink at least 500ml of water after your second dose of Plenvu",
+    type: "water"
+
+});
 
     tasks.push({
 
