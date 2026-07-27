@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#41B6E6">
+<link rel="icon" type="image/png" href="images/icon-192.png">
+<link rel="apple-touch-icon" href="images/icon-192.png">
 </head>
 
 <body>
@@ -298,6 +300,20 @@ Achievement Unlocked!</h2>
 </div>
 </div>
 <script src="script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Failed:", error);
+            });
+    });
+}
+</script>
 
 </body>
 </html>
