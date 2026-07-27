@@ -335,7 +335,7 @@ function checkLevelUps() {
         prepPaladinUnlocked = true;
     }
 
-    if (score >= 200 && !grandPoobahUnlocked) {
+    if (score >= 170 && !grandPoobahUnlocked) {
 
         showAchievement(
             "Level Up!",
