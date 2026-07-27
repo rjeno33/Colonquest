@@ -365,7 +365,7 @@ if(score>=130){
 level="Prep Paladin";
 }
 
-if(score>=200){
+if(score>=170){
 level="Grand Poobah of Prep";
 }
 
