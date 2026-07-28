@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<title> Colonoscopy Companion</title>
+<title> Colon Quest</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
@@ -17,11 +17,16 @@
 
 <div id="welcomeScreen">
 
-    <h1>Colonoscopy Companion</h1>
+    <h1>Colon Quest</h1>
 
     <p>
-        Welcome! This app will guide you through your preparation,
+        Welcome! 
+    <br>
+      Having a colonoscopy can feel like a daunting task but
+     this app will guide you through your preparation,
         one day at a time.
+
+       Complete daily tasks to gain experience and improve the quality of your colonoscopy procedure
     </p>
 
     <h3>Features</h3>
@@ -44,15 +49,15 @@
     </p>
 
     <button id="startButton">
-        Create My Preparation Plan
+        Begin My Journey
     </button>
 
 </div>
 <div id="mainApp">
 <hr>
-<h1> Colonoscopy Companion</h1>
+<h1> Colon Quest</h1>
 <p> Helping you prepare for your appointment</p>
-<h2>⭐ Prep Points: <span id="score">0</span></h2>
+<h2>⭐ Experience: <span id="score">0</span></h2>
 <h3>Level: <span id="level">Prep Padawan</span></h3>
 <h2>Preparation Progress</h2>
 
@@ -65,7 +70,7 @@
 <h2 id="achievementHeader">
     <i class="fa-solid fa-trophy"></i>
     Achievements
-    <span id="achievementCount">(0/7)</span>
+    <span id="achievementCount">(0/9)</span>
     <span id="achievementArrow"><i class='fa-regular fa-square-caret-down'></i></span>
 </h2>
 
@@ -82,7 +87,7 @@
 
 <div class="faqItem">
 
-    <button class="faqQuestion">
+    <button class="faqQuestion" data-faq="true">
         What is a colonoscopy?
     </button>
 
@@ -95,17 +100,110 @@
             bowel disease.
         </p>
 
-        <button onclick="window.open('https://www.youtube.com/watch?v=wK2imf6w8Pw')">
-            <i class="fa-solid fa-circle-play"></i>
-            Watch 2-minute video
+ <button onclick="openColonoscopyVideo()">
+    <i class="fa-solid fa-circle-play"></i>
+    Watch 2-minute video
+</button>
+
+    </div>
+
+</div>
+
+<div class="faqItem">
+
+    <button class="faqQuestion" data-faq="true">
+        Will I be awake for my colonoscopy?
+    </button>
+
+    <div class="faqAnswer">
+
+        <p>
+            Most patients having a colonoscopy in the UK will be offered a choice
+            of pain relief options. Select an option below to find out more.
+        </p>
+
+
+        <button class="subFAQQuestion">
+            🌬️ Entonox (gas and air)
         </button>
+
+        <div class="subFAQAnswer">
+
+            <p>
+                Entonox is a mixture of oxygen and nitrous oxide (laughing gas).
+                You breathe it through a mouthpiece and control when you take it.
+            </p>
+
+            <p>
+                It can help reduce discomfort and anxiety during the procedure,
+                but you remain awake and able to communicate with the endoscopy team.
+            </p>
+
+            <p>
+                <strong>Afterwards:</strong> Entonox leaves your body quickly, and
+                most people can return to normal activities soon after the procedure.
+            </p>
+
+        </div>
+
+
+        <button class="subFAQQuestion">
+            💉 Conscious sedation
+        </button>
+
+        <div class="subFAQAnswer">
+
+            <p>
+                Conscious sedation involves medication given through a small
+                injection into a vein. It helps you feel relaxed and sleepy while
+                reducing discomfort.
+            </p>
+
+            <p>
+                You are not usually fully asleep, and you can still respond to
+                the endoscopy team if needed.
+            </p>
+
+            <p>
+                <strong>Important:</strong> If you have sedation, you will need
+                someone to take you home and stay with you afterwards.
+                You should not drive, operate machinery, drink alcohol, or make
+                important decisions for the rest of the day.
+            </p>
+
+        </div>
 
     </div>
 
 </div>
 
     <div class="faqItem">
-        <button class="faqQuestion">
+        <button class="faqQuestion" data-faq="true">
+            Do i need to stop taking my medication?
+        </button>
+
+        <div class="faqAnswer">
+            Iron tablets should be stopped a week before your colonoscopy. <br><br> Other medications such as blood thinners or anticoagulants may need to be stopped depending on your procedure; you should discuss this with your referring physician or hospital.
+        </div>
+    </div>
+
+    <div class="faqItem">
+        <button class="faqQuestion" data-faq="true">
+            Why do I need a low residue diet?
+        </button>
+
+        <div class="faqAnswer">
+           <p> A low residue diet leaves less material inside your bowel, making the bowel preparation more effective.</p>
+     
+ <button onclick="openDietGuide()" class="buttonLink">
+    <i class="fa-regular fa-file"></i>
+    Low residue diet sheet
+</button>
+        </div>
+
+
+    <div class="faqItem">
+        <button class="faqQuestion" data-faq="true">
             Can I drink tea or coffee?
         </button>
 
@@ -114,31 +212,89 @@
         </div>
     </div>
 
+
+
+
     <div class="faqItem">
-        <button class="faqQuestion">
-            Can I drink coffee?
+        <button class="faqQuestion" data-faq="true">
+            Will the bowel preparation make me have diarrhoea?
         </button>
 
         <div class="faqAnswer">
-            Black coffee is usually allowed. Coffee with milk is not allowed once your fasting instructions begin.
+            Yes. The bowel preparation works by clearing your bowel, so frequent watery bowel movements are expected. When the preparation is nearly complete you should expect to pass only a yellowy coloured water.
         </div>
     </div>
 
     <div class="faqItem">
-        <button class="faqQuestion">
-            Why do I need a low residue diet?
+        <button class="faqQuestion" data-faq="true">
+           What should I do if I feel sick while drinking the preparation?
         </button>
 
         <div class="faqAnswer">
-           <p> A low residue diet leaves less material inside your bowel, making the bowel preparation more effective.</p>
-     
-        <a href="https://publicdocuments.sth.nhs.uk/pil5472%20(1).pdf"
-   target="_blank"
-   class="buttonLink">
-    <i class="fa-regular fa-file"></i>
-    Low residue diet sheet
-</a>
+            Try drinking it more slowly, taking short breaks, and drinking approved clear fluids alongside the preperation. If you cannot complete your preparation, contact your endoscopy unit for advice.
         </div>
+    </div>
+
+    <div class="faqItem">
+        <button class="faqQuestion" data-faq="true">
+            Can i mix other drinks into my preparation?
+        </button>
+
+        <div class="faqAnswer">
+            We recommend not mixing other flavours or drinks directly into the preparation as there is a risk of making it taste undrinkable. Instead try having your preferred clear fluid to drink alongside your preparation
+        </div>
+    </div>
+
+    <div class="faqItem">
+        <button class="faqQuestion" data-faq="true">
+            Do i need to drink all the bowel preparation?
+        </button>
+
+        <div class="faqAnswer">
+           Yes. Even if you are only passing liquid stools we always recommend you drink all the preparation to make the bowel as clean as possible, improve the quality of your test and reduce the risk of needing a repeat procedure.
+        </div>
+    </div>
+
+<button class="faqQuestion" data-faq="true">
+    What happens on the day of my colonoscopy?
+</button>
+
+<div class="faqAnswer">
+
+<p>
+When you arrive at the endoscopy unit, a member of the team will check
+your details, explain the procedure, and answer any questions and complete a consent form and discuss options of pain relief and sedation.
+</p>
+
+<p>
+You will be required to change into some special gowns and underwear shorts and you may need a cannula inserting.
+</p>
+
+<p>
+You will be taken to the procedure room where you will meet the clinician performing your test and the nursing team, you will have the opportunity to discuss your symptoms and any further questions before starting the test
+</p>
+
+<p>
+After your colonoscopy, you will be monitored until you are ready to go home.
+</p>
+
+</div>
+
+    <div class="faqItem">
+        <button class="faqQuestion" data-faq="true">
+            How long will my colonoscopy appointment take?
+        </button>
+
+        <div class="faqAnswer">
+          The colonoscopy itself usually takes around 20–45 minutes, but you should expect to be in the endoscopy unit longer due to preparation, consent, recovery and discharge.
+        </div>
+    </div>
+
+
+
+
+
+
     </div>
 
 </div>
@@ -160,7 +316,7 @@
     </button>
 
     <button id="clearDateButton">
-        Clear Date
+        Reset Plan
     </button>
 
 </div>
@@ -282,7 +438,7 @@
 <h2 id="helpful-info">Helpful information</h2>
 <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjfvtzkmb6VAxUOQkEAHVxUGD8QFnoECCQQAQ&url=https%3A%2F%2Felht.nhs.uk%2Fapplication%2Ffiles%2F3315%2F8556%2F0327%2FDIET-002-LowFibrelowresiduediet-2019.pdf&usg=AOvVaw0Uk25ESOMN47N5drxUEGEp&opi=89978449" target="_blank"> Low Residue Diet </a>
 <hr>
-<p> Colonoscopy Companion v1.0 beta </p>
+<p> Colon Quest v1.0 beta </p>
 <p> Created By </p>
 <p> Ryan Jennings </p>
 <p> Disclaimer : This app is designed to support your preparation. Always follow the advice from your healthcare provider or discuss with them if you have any queries or their advice differs from that provided here</p>
