@@ -814,14 +814,14 @@ function showAchievement(title, text, icon) {
 
 
 achievementArrow.innerHTML = "<i class='fa-regular fa-square-caret-up'></i>";
-    achievementPopup.classList.remove("hidden");
+    achievementPopup.classList.remove("popupHidden");
     achievementPopup.classList.add("show");
 
 
     setTimeout(function(){
 
         achievementPopup.classList.remove("show");
-        achievementPopup.classList.add("hidden");
+        achievementPopup.classList.add("popupHidden");
 
     },4000);
 
@@ -1258,6 +1258,7 @@ function addFAQListeners() {
         question.addEventListener("click", function() {
 
 
+            // Achievement tracking
             if (!question.dataset.viewed) {
 
                 question.dataset.viewed = "true";
@@ -1272,15 +1273,21 @@ function addFAQListeners() {
             const answer = question.nextElementSibling;
 
 
-            if (answer.style.display === "block") {
+            // Close all other FAQ answers
+            document.querySelectorAll(".faqAnswer").forEach(function(item){
 
-                answer.style.display = "none";
+                if(item !== answer){
 
-            } else {
+                    item.classList.remove("open");
 
-                answer.style.display = "block";
+                }
 
-            }
+            });
+
+
+            // Open clicked answer
+            answer.classList.toggle("open");
+
 
         });
 
