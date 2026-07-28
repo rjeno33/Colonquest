@@ -123,6 +123,12 @@ min-height:44px;
 .fa-crown{
        color:gold;
 }
+.fa-compass{
+       color:red;
+}
+.fa-book-open{
+       color:#0B17F4
+}
 
 #faqHeader{
 
@@ -632,4 +638,25 @@ select{
     border-radius:18px;
 
     box-sizing:border-box;
+}
+
+.subFAQQuestion {
+    width:90%;
+    margin:10px auto;
+    padding:10px;
+    background:#e6f7ff;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+
+.subFAQAnswer {
+    display:none;
+    padding:10px;
+    margin:5px;
+    background:white;
+    border-radius:8px;
+    text-align:left;
 }
