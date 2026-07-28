@@ -11,13 +11,22 @@ let sennaUnlocked = false;
 let dietUnlocked = false;
 let prepUnlocked = false;
 let fastUnlocked = false;
+let explorerUnlocked = false;
+let faqExplorerUnlocked = false;
+
 
 let colonCadetUnlocked = false;
 let bowelBaronUnlocked = false;
 let prepPaladinUnlocked = false;
 let grandPoobahUnlocked = false;
 
+let dietGuideViewed = false;
+let colonoscopyVideoViewed = false;
+
 let rating = 0;
+
+let faqQuestionsViewed = 0;
+let totalFAQQuestions = 0;
 
 const achievementPopup = document.getElementById("achievementPopup");
 const achievementTitle = document.getElementById("achievementTitle");
@@ -83,6 +92,40 @@ const taskTotals = {
 // Functions
 // =========================
 
+
+// Diet Guide //
+
+function openDietGuide() {
+
+    dietGuideViewed = true;
+
+    localStorage.setItem("dietGuideViewed", "true");
+
+    checkAchievements();
+
+    window.open(
+        "https://publicdocuments.sth.nhs.uk/pil5472%20(1).pdf",
+        "_blank"
+    );
+
+}
+
+// Colon Video //
+
+function openColonoscopyVideo() {
+
+    colonoscopyVideoViewed = true;
+
+    localStorage.setItem("colonoscopyVideoViewed", "true");
+
+    checkAchievements();
+
+    window.open(
+        "https://www.youtube.com/watch?v=wK2imf6w8Pw",
+        "_blank"
+    );
+
+}
 
 // Text rating //
 
@@ -306,7 +349,7 @@ function checkLevelUps() {
 
         showAchievement(
             "Level Up!",
-            "You are now a Colon Cadet. Great work, keep going!",
+            "You are now a Colon Cadet. You've made a great start!",
             "<i class='fa-solid fa-angles-up'></i>"
         );
 
@@ -317,7 +360,7 @@ function checkLevelUps() {
 
         showAchievement(
             "Level Up!",
-            "You are now a Bowel Baron!",
+            "You are now a Bowel Baron! Keep this consistency going! ",
             "<i class='fa-solid fa-chess-rook'></i>"
         );
 
@@ -328,7 +371,7 @@ function checkLevelUps() {
 
         showAchievement(
             " Level Up!",
-            "You are now a Prep Paladin!",
+            "You are now a Prep Paladin! You are on your way to a successful colonoscopy!",
             "<i class='fa-solid fa-shield-halved'></i>"
         );
 
@@ -339,7 +382,7 @@ function checkLevelUps() {
 
         showAchievement(
             "Level Up!",
-            "You are now the Grand Poobah of Prep!",
+            "You are now the Grand Poobah of Prep! You are doing amazing!",
             "<i class='fa-solid fa-crown'></i>"
         );
 
@@ -399,8 +442,15 @@ localStorage.setItem("sennaUnlocked", sennaUnlocked);
 localStorage.setItem("dietUnlocked", dietUnlocked);
 localStorage.setItem("prepUnlocked", prepUnlocked);
 localStorage.setItem("fastUnlocked", fastUnlocked);
+localStorage.setItem("explorerUnlocked", explorerUnlocked);
+localStorage.setItem("faqExplorerUnlocked", faqExplorerUnlocked);
+
+
+    localStorage.setItem("dietGuideViewed", dietGuideViewed);
+ localStorage.setItem("colonoscopyVideoViewed", colonoscopyVideoViewed);
 
 }
+
 
 // Load Achievements //
 
@@ -413,6 +463,15 @@ sennaUnlocked = localStorage.getItem("sennaUnlocked") === "true";
 dietUnlocked = localStorage.getItem("dietUnlocked") === "true";
 prepUnlocked = localStorage.getItem("prepUnlocked") === "true";
 fastUnlocked = localStorage.getItem("fastUnlocked") === "true";
+explorerUnlocked = localStorage.getItem("explorerUnlocked") === "true";
+faqExplorerUnlocked = localStorage.getItem("faqExplorerUnlocked") === "true";
+
+dietGuideViewed =
+    localStorage.getItem("dietGuideViewed") === "true";
+
+colonoscopyVideoViewed =
+    localStorage.getItem("colonoscopyVideoViewed") === "true";
+
 
 }
 
@@ -423,6 +482,8 @@ function renderAchievements() {
 const cabinet = document.getElementById("achievementCabinet");
 
 cabinet.innerHTML =
+        "<p>" + (faqExplorerUnlocked ? "<i class='fa-solid fa-book-open'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Scholar</p>" +
+        "<p>" + (explorerUnlocked ? "<i class ='fa-solid fa-compass'></i>" : "<i class='fa-solid fa-lock'></i>") + " Explorer</p>" +
         "<p>" + (perfectTenUnlocked ? "<i class='fa-solid fa-star'></i>" : "<i class='fa-solid fa-lock'></i>") + " Perfect Ten</p>" +
         "<p>" + (championUnlocked ? "<i class='fa-solid fa-trophy'></i>" : "<i class='fa-solid fa-lock'></i>") + " Colonoscopy Champion</p>" +
         "<p>" + (waterUnlocked ? "<i class='fa-solid fa-droplet'></i>" : "<i class='fa-solid fa-lock'></i>") + " Hydration Hero</p>" +
@@ -430,6 +491,7 @@ cabinet.innerHTML =
         "<p>" + (dietUnlocked ? "<i class='fa-solid fa-utensils'></i>" : "<i class='fa-solid fa-lock'></i>") + " Low Residue Legend</p>" +
         "<p>" + (prepUnlocked ? "<i class='fa-solid fa-flask'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Professional</p>" +
         "<p>" + (fastUnlocked ? "<i class='fa-solid fa-truck-fast'></i>" : "<i class='fa-solid fa-lock'></i>") + " The Fasting and the Furious</p>";
+
 
 let unlocked = 0;
 
@@ -440,9 +502,11 @@ if(sennaUnlocked) unlocked++;
 if(dietUnlocked) unlocked++;
 if(prepUnlocked) unlocked++;
 if(fastUnlocked) unlocked++;
+if(explorerUnlocked) unlocked++;
+if(faqExplorerUnlocked) unlocked++;
 
 achievementCount.textContent =
-"(" + unlocked + "/7)";
+"(" + unlocked + "/9)";
 
 }
 
@@ -460,10 +524,15 @@ function resetPlan() {
     dietUnlocked = false;
     prepUnlocked = false;
     fastUnlocked = false;
+    explorerUnlocked = false;
+    faqExplorerUnlocked = false;
     colonCadetUnlocked = false;
 bowelBaronUnlocked = false;
 prepPaladinUnlocked = false;
 grandPoobahUnlocked = false;
+dietGuideViewed = false;
+colonoscopyVideoViewed = false;
+
  
 
     Object.keys(taskProgress).forEach(function(key) {
@@ -543,6 +612,34 @@ function loadProgress() {
 }
 
 
+// sub faq listeners //
+
+function addSubFAQListeners(){
+
+    const buttons = document.querySelectorAll(".subFAQQuestion");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            const answer = button.nextElementSibling;
+
+            if(answer.style.display === "block"){
+
+                answer.style.display = "none";
+
+            } else {
+
+                answer.style.display = "block";
+
+            }
+
+        });
+
+    });
+
+}
+
 
 
 function addCheckboxListeners() {
@@ -598,6 +695,35 @@ function addCheckboxListeners() {
 
 function checkAchievements() {
 
+
+
+// FAQ Explorer
+
+if (faqQuestionsViewed === totalFAQQuestions && !faqExplorerUnlocked) {
+
+    faqExplorerUnlocked = true;
+
+    showAchievement(
+        "Prep Scholar",
+        "You discovered all the information to prepare for your colonoscopy!",
+        "<i class='fa-solid fa-book-open'></i>"
+    );
+
+}
+
+// Explorer Achievement
+
+if (dietGuideViewed && colonoscopyVideoViewed && !explorerUnlocked) {
+
+    explorerUnlocked = true;
+
+    showAchievement(
+        "Explorer",
+        "You viewed the educational video and diet information",
+        "<i class='fa-solid fa-compass'></i>");
+
+}
+
     // Perfect Ten
     if (completedTasks >= 10 && !perfectTenUnlocked) {
 
@@ -608,24 +734,31 @@ function checkAchievements() {
 
     }
 
-    // Colonoscopy Champion
-    if (completedTasks === document.querySelectorAll("input[type='checkbox']").length &&
-        !championUnlocked) {
+// Colonoscopy Champion
 
-        showAchievement("Colonoscopy Champion!",
-                        "You're Colonoscopy ready! Amazing work!",
-                        "<i class ='fa-solid fa-trophy'></i>");
-        championUnlocked = true;
+const totalTasks =
+document.querySelectorAll("#plan input[type='checkbox']").length;
 
-    }
+
+if (totalTasks > 0 &&
+    completedTasks === totalTasks &&
+    !championUnlocked) {
+
+    showAchievement(
+        "Colonoscopy Champion!",
+        "You're Colonoscopy ready! Amazing work!",
+        "<i class='fa-solid fa-trophy'></i>"
+    );
+
+    championUnlocked = true;
+
+}
 
     // Water Master
     if (  taskTotals.water > 0 &&
          taskProgress.water === taskTotals.water && !waterUnlocked) {
 
-        showAchievement("Hydration Hero",
-                        "You drank every drop",
-                         "<i class ='fa-solid fa-droplet'></i>");
+
          waterUnlocked = true;
     }
 
@@ -633,9 +766,7 @@ function checkAchievements() {
     if (    taskTotals.senna > 0 &&
             taskProgress.senna === taskTotals.senna && !sennaUnlocked) {
 
-        showAchievement("Senna Success!",
-                        "You took all the Senna doses",
-                         "<i class ='fa-solid fa-pills'></i>");
+ 
         sennaUnlocked = true;
     }
 
@@ -643,9 +774,7 @@ function checkAchievements() {
     if (   taskTotals.diet > 0 &&
            taskProgress.diet === taskTotals.diet && !dietUnlocked) {
 
-        showAchievement("Low Residue Legend!",
-                        "You followed the low residue diet all week",
-                         "<i class ='fa-solid fa-utensils'></i>");
+ 
         dietUnlocked = true;
     }
 
@@ -653,9 +782,7 @@ function checkAchievements() {
 if (  taskTotals.fast > 0 &&
       taskProgress.fast === taskTotals.fast && !fastUnlocked) {
 
-    showAchievement(" The Fasting and the Furious!",
-                    "You commenced the fast",
-                     "<i class='fa-solid fa-truck-fast'></i>");
+
     fastUnlocked = true;
 }
 
@@ -1091,7 +1218,7 @@ document.querySelectorAll("[data-type='fast']").length;
     loadProgress();
 }
 
-    addFAQListeners();
+    
 
     addCheckboxListeners();
 
@@ -1123,22 +1250,28 @@ function addFAQListeners() {
 
     const questions = document.querySelectorAll(".faqQuestion");
 
+    totalFAQQuestions = questions.length;
+
+
     questions.forEach(function(question) {
 
         question.addEventListener("click", function() {
 
+
+            if (!question.dataset.viewed) {
+
+                question.dataset.viewed = "true";
+
+                faqQuestionsViewed++;
+
+                checkAchievements();
+
+            }
+
+
             const answer = question.nextElementSibling;
 
-            // Close every other answer
-            document.querySelectorAll(".faqAnswer").forEach(function(item) {
 
-                if (item !== answer) {
-                    item.style.display = "none";
-                }
-
-            });
-
-            // Toggle the clicked answer
             if (answer.style.display === "block") {
 
                 answer.style.display = "none";
@@ -1229,6 +1362,8 @@ document.getElementById("submitFeedback")
 window.addEventListener("load",function(){
 
     initialiseStarRating();
+    addFAQListeners();
+    addSubFAQListeners();
 
 });
 
