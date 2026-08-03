@@ -682,3 +682,32 @@ select{
 .faqAnswer.open {
     display:block;
 }
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px 0;
+    border: 2px solid #41B6E6;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background: white;
+    color: #333;
+}
+
+select:focus {
+    outline: none;
+    border-color: #1a7fb8;
+    box-shadow: 0 0 6px rgba(65,182,230,0.35);
+}
+
+input[type="datetime-local"]{
+    width:100%;
+    padding:12px;
+    margin:8px 0 16px 0;
+    border:2px solid #41B6E6;
+    border-radius:10px;
+    font-size:16px;
+    box-sizing:border-box;
+}
