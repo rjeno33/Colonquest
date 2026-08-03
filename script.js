@@ -1,6 +1,398 @@
+/// ==============
+//  Profiles
+///===============
+
+const defaultProfile = {
+
+    name: "SouthYorkshire Bowel Cancer Screening",
+
+    hospitalSites: [
+            "Northern General Hospital",
+            "Royal Hallamshire Hospital",
+            "Doncaster Royal Infirmary",
+             "Barnsley Hospital",
+             "Rotherham Hospital"
+           ],
+
+
+    regimens: {
+
+                       am: {
+
+                              fixedPrepTimes: false,
+                              dietStartDays: 5,
+                              sennaStartDays: 5,
+                              fastingTime: "15:00",
+
+                               medications: [
+
+                                {
+                                  id: "iron",
+                                  name: "iron tablets (if prescribed)",
+                                  stopDays: 7
+                                 }
+
+                                 ],
+                                 waterTasks: true,
+                                  waterStartDays: 5,
+                                 sennaTasks: true,
+                                   waterAfterPrep: true,
+                                fastingHoursBefore: 2,
+                                 prepDoses: 2,
+                                 firstDoseDay: 1,
+                                  firstDoseTime: "19:00"
+
+},
+
+        pm: {
+            fixedPrepTimes: false,
+            dietStartDays: 5,
+            sennaStartDays: 5,
+            waterStartDays: 5,
+            fastingTime: "15:00",
+            medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         } 
+                         ],
+           
+            waterTasks: true,
+            sennaTasks: true,
+            waterAfterPrep: true,
+            fastingTime: "15:00",
+            fastingHoursBefore: 2,
+            prepDoses: 2,
+            firstDoseDay: 1,
+            firstDoseTime: "19:00"
+        },
+
+        evening: {
+            fixedPrepTimes: false,
+            sennaStartDays: 5,
+            dietStartDays: 5,
+           waterStartDays: 5,
+           fastingTime: "15:00",
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         } 
+                         ],
+            waterTasks: true,
+            sennaTasks: true,
+            waterAfterPrep: true,
+            fastingTime: "21:00",
+            fastingHoursBefore: 2,
+            prepDoses: 2,
+            firstDoseDay: 0,
+            firstDoseTime: "07:00"
+        }
+
+    }
+
+};
+
+//========================
+// SHEFFIELD PROFILE ///
+//========================
+
+const sheffieldProfile = {
+
+    name: "Sheffield",
+
+    hospitalSites: ["Northern General Hospital",
+            "Royal Hallamshire Hospital"
+           ],
+
+    regimens: {
+
+        am: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 2,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         } 
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "15:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 1,
+                    time: "18:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "04:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        },
+
+        pm: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 2,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         } 
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "09:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 1,
+                    time: "21:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "07:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        },
+
+        evening: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 2,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         } 
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "21:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 0,
+                    time: "09:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "13:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        }
+
+    }
+
+};
+
+
+/// Chesterfield Profile ///
+
+const chesterfieldProfile = {
+
+    name: "Chesterfield",
+
+    hospitalSites: [
+    "Chesterfield Royal Hospital"
+],
+
+    regimens: {
+
+        am: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 3,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         },
+                         {
+                          id: "nsaid",
+                          name: "NSAID medication",
+                          stopDays: 1
+                          } 
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "15:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 1,
+                    time: "18:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "04:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        },
+
+        pm: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 3,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         },
+                         {
+                          id: "nsaid",
+                          name: "NSAID medication",
+                          stopDays: 1
+                          }  
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "09:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 1,
+                    time: "21:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "07:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        },
+
+        evening: {
+
+            fixedPrepTimes: true,
+
+            dietStartDays: 3,
+
+                        medications: [
+                        {
+                         id: "iron",
+                         name: "iron tablets (if prescribed)",
+                         stopDays: 7
+                         },
+                         {
+                          id: "nsaid",
+                          name: "NSAID medication",
+                          stopDays: 1
+                          }  
+                         ],
+
+            waterTasks: false,
+
+            sennaTasks: false,
+
+            waterAfterPrep: true,
+
+            fastingTime: "21:00",
+
+            prepSchedule: [
+
+                {
+                    dayBefore: 0,
+                    time: "09:00",
+                    text: "Mix and drink your first dose of Plenvu"
+                },
+
+                {
+                    dayBefore: 0,
+                    time: "13:00",
+                    text: "Mix and drink your second dose of Plenvu"
+                }
+
+            ]
+
+        }
+
+    }
+
+};
+
+
+let activeProfile = sheffieldProfile;
+
 // =========================
 // Variables
 // =========================
+
+const siteSelect = document.getElementById("siteSelect");
 
 let perfectTenUnlocked = false;
 let championUnlocked = false;
@@ -69,6 +461,7 @@ startButton.addEventListener("click", function(){
 
 });
 
+let maxPossibleScore = 0;
 
 const taskProgress = {
     water: 0,
@@ -76,6 +469,7 @@ const taskProgress = {
     diet: 0,
     prep: 0,
     fast: 0,
+    medication: 0,
     end: 0
 };
 const taskTotals = {
@@ -84,13 +478,48 @@ const taskTotals = {
     diet: 0,
     prep: 0,
     fast: 0,
+    medication: 0,
     end: 0
 };
+
+
 
 
 // =========================
 // Functions
 // =========================
+
+
+
+/// Populate Sites ///
+
+function populateSites() {
+
+    siteSelect.innerHTML = "";
+
+    activeProfile.hospitalSites.forEach(function(site) {
+
+        const option = document.createElement("option");
+
+        option.value = site;
+        option.textContent = site;
+
+        siteSelect.appendChild(option);
+
+    });
+
+    const savedSite = localStorage.getItem("site");
+
+    if (
+        savedSite &&
+        activeProfile.hospitalSites.includes(savedSite)
+    ) {
+
+        siteSelect.value = savedSite;
+
+    }
+
+}
 
 
 // Diet Guide //
@@ -239,33 +668,37 @@ function submitFeedback() {
     const recommend =
         document.querySelector("input[name='recommend']:checked");
 
-    fetch("https://script.google.com/macros/s/AKfycby4FTW3-gXQSFUCASoA3NftFtT62LwO5gQgGBjBSjUy_Cp-JuHXGJXbf1fxPdSTFqDR/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyTeEy1a2m1AK0P5qxrLNLW1d6ZZ5QDyCP5lY8Aepb7PalY5DDQfe2AnPJ_htL-JRgWHA/exec", {
 
         method: "POST",
 
-        body: JSON.stringify({
+                            body: JSON.stringify({
 
-            ageGroup: document.getElementById("ageGroup").value,
+    trust: activeProfile.name,
 
-            gender: document.getElementById("gender").value,
+    site: document.getElementById("siteSelect").value,
 
-            firstTime: firstTime ? firstTime.value : "",
+    ageGroup: document.getElementById("ageGroup").value,
 
-            rating: rating,
+    gender: document.getElementById("gender").value,
 
-            helpful: helpful ? helpful.value : "",
+    firstTime: firstTime ? firstTime.value : "",
 
-            anxiety: anxiety ? anxiety.value : "",
+    rating: rating,
 
-            recommend: recommend ? recommend.value : "",
+    helpful: helpful ? helpful.value : "",
 
-            device: document.getElementById("device").value,
+    anxiety: anxiety ? anxiety.value : "",
 
-            comments: document.getElementById("comments").value
+    recommend: recommend ? recommend.value : "",
 
-        })
+    device: document.getElementById("device").value,
 
-    })
+    comments: document.getElementById("comments").value
+
+
+})
+})
 
     .then(function() {
 
@@ -345,7 +778,15 @@ function showCompletionPage() {
 
 function checkLevelUps() {
 
-    if (score >= 40 && !colonCadetUnlocked) {
+if(maxPossibleScore === 0){
+    return;
+}
+
+    const completion =
+    (score / maxPossibleScore) * 100;
+
+
+    if (completion >= 25 && !colonCadetUnlocked) {
 
         showAchievement(
             "Level Up!",
@@ -356,21 +797,23 @@ function checkLevelUps() {
         colonCadetUnlocked = true;
     }
 
-    if (score >= 70 && !bowelBaronUnlocked) {
+
+    if (completion >= 50 && !bowelBaronUnlocked) {
 
         showAchievement(
             "Level Up!",
-            "You are now a Bowel Baron! Keep this consistency going! ",
+            "You are now a Bowel Baron! Keep this consistency going!",
             "<i class='fa-solid fa-chess-rook'></i>"
         );
 
         bowelBaronUnlocked = true;
     }
 
-    if (score >= 130 && !prepPaladinUnlocked) {
+
+    if (completion >= 75 && !prepPaladinUnlocked) {
 
         showAchievement(
-            " Level Up!",
+            "Level Up!",
             "You are now a Prep Paladin! You are on your way to a successful colonoscopy!",
             "<i class='fa-solid fa-shield-halved'></i>"
         );
@@ -378,7 +821,8 @@ function checkLevelUps() {
         prepPaladinUnlocked = true;
     }
 
-    if (score >= 170 && !grandPoobahUnlocked) {
+
+    if (completion >= 100 && !grandPoobahUnlocked) {
 
         showAchievement(
             "Level Up!",
@@ -394,26 +838,38 @@ function checkLevelUps() {
 
 function updateLevel(){
 
-let level="Prep Padawan";
+    let level = "Prep Padawan";
 
-if(score>=40){
-level="Colon Cadet";
-}
-
-if(score>=70){
-level="Bowel Baron";
-}
-
-if(score>=130){
-level="Prep Paladin";
-}
-
-if(score>=170){
-level="Grand Poobah of Prep";
+if(maxPossibleScore === 0){
+    return;
 }
 
 
-document.getElementById("level").textContent=level;
+    const completion =
+    (score / maxPossibleScore) * 100;
+
+
+    if(completion >= 25){
+        level = "Colon Cadet";
+    }
+
+
+    if(completion >= 50){
+        level = "Bowel Baron";
+    }
+
+
+    if(completion >= 75){
+        level = "Prep Paladin";
+    }
+
+
+    if(completion >= 100){
+        level = "Grand Poobah of Prep";
+    }
+
+
+    document.getElementById("level").textContent = level;
 
 }
 
@@ -481,34 +937,130 @@ function renderAchievements() {
 
 const cabinet = document.getElementById("achievementCabinet");
 
-cabinet.innerHTML =
-        "<p>" + (faqExplorerUnlocked ? "<i class='fa-solid fa-book-open'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Scholar</p>" +
-        "<p>" + (explorerUnlocked ? "<i class ='fa-solid fa-compass'></i>" : "<i class='fa-solid fa-lock'></i>") + " Explorer</p>" +
-        "<p>" + (perfectTenUnlocked ? "<i class='fa-solid fa-star'></i>" : "<i class='fa-solid fa-lock'></i>") + " Perfect Ten</p>" +
-        "<p>" + (championUnlocked ? "<i class='fa-solid fa-trophy'></i>" : "<i class='fa-solid fa-lock'></i>") + " Colonoscopy Champion</p>" +
-        "<p>" + (waterUnlocked ? "<i class='fa-solid fa-droplet'></i>" : "<i class='fa-solid fa-lock'></i>") + " Hydration Hero</p>" +
-        "<p>" + (sennaUnlocked ? "<i class='fa-solid fa-pills'></i>" : "<i class='fa-solid fa-lock'></i>") + " Senna Superstar</p>" +
-        "<p>" + (dietUnlocked ? "<i class='fa-solid fa-utensils'></i>" : "<i class='fa-solid fa-lock'></i>") + " Low Residue Legend</p>" +
-        "<p>" + (prepUnlocked ? "<i class='fa-solid fa-flask'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Professional</p>" +
-        "<p>" + (fastUnlocked ? "<i class='fa-solid fa-truck-fast'></i>" : "<i class='fa-solid fa-lock'></i>") + " The Fasting and the Furious</p>";
+let html = "";
 
-
+let totalAchievements = 0;
 let unlocked = 0;
 
-if(perfectTenUnlocked) unlocked++;
-if(championUnlocked) unlocked++;
-if(waterUnlocked) unlocked++;
-if(sennaUnlocked) unlocked++;
-if(dietUnlocked) unlocked++;
-if(prepUnlocked) unlocked++;
-if(fastUnlocked) unlocked++;
-if(explorerUnlocked) unlocked++;
-if(faqExplorerUnlocked) unlocked++;
 
-achievementCount.textContent =
-"(" + unlocked + "/9)";
+// Always available achievements
+
+html += "<p>" + (faqExplorerUnlocked ? "<i class='fa-solid fa-book-open'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Scholar</p>";
+totalAchievements++;
+
+if(faqExplorerUnlocked){
+    unlocked++;
+}
+
+
+html += "<p>" + (explorerUnlocked ? "<i class='fa-solid fa-compass'></i>" : "<i class='fa-solid fa-lock'></i>") + " Explorer</p>";
+totalAchievements++;
+
+if(explorerUnlocked){
+    unlocked++;
+}
+
+
+html += "<p>" + (perfectTenUnlocked ? "<i class='fa-solid fa-star'></i>" : "<i class='fa-solid fa-lock'></i>") + " Perfect Ten</p>";
+totalAchievements++;
+
+if(perfectTenUnlocked){
+    unlocked++;
+}
+
+
+html += "<p>" + (championUnlocked ? "<i class='fa-solid fa-trophy'></i>" : "<i class='fa-solid fa-lock'></i>") + " Colonoscopy Champion</p>";
+totalAchievements++;
+
+if(championUnlocked){
+    unlocked++;
+}
+
+
+// Only show water achievement if required
+
+if(taskTotals.water > 0){
+
+    html += "<p>" + (waterUnlocked ? "<i class='fa-solid fa-droplet'></i>" : "<i class='fa-solid fa-lock'></i>") + " Hydration Hero</p>";
+
+    totalAchievements++;
+
+    if(waterUnlocked){
+        unlocked++;
+    }
 
 }
+
+
+// Only show Senna achievement if required
+
+if(taskTotals.senna > 0){
+
+    html += "<p>" + (sennaUnlocked ? "<i class='fa-solid fa-pills'></i>" : "<i class='fa-solid fa-lock'></i>") + " Senna Superstar</p>";
+
+    totalAchievements++;
+
+    if(sennaUnlocked){
+        unlocked++;
+    }
+
+}
+
+
+// Diet is always likely relevant, but keep it dynamic
+
+if(taskTotals.diet > 0){
+
+    html += "<p>" + (dietUnlocked ? "<i class='fa-solid fa-utensils'></i>" : "<i class='fa-solid fa-lock'></i>") + " Low Residue Legend</p>";
+
+    totalAchievements++;
+
+    if(dietUnlocked){
+        unlocked++;
+    }
+
+}
+
+
+// Prep achievement
+
+if(taskTotals.prep > 0){
+
+    html += "<p>" + (prepUnlocked ? "<i class='fa-solid fa-flask'></i>" : "<i class='fa-solid fa-lock'></i>") + " Prep Professional</p>";
+
+    totalAchievements++;
+
+    if(prepUnlocked){
+        unlocked++;
+    }
+
+}
+
+
+// Fasting achievement
+
+if(taskTotals.fast > 0){
+
+    html += "<p>" + (fastUnlocked ? "<i class='fa-solid fa-truck-fast'></i>" : "<i class='fa-solid fa-lock'></i>") + " The Fasting and the Furious</p>";
+
+    totalAchievements++;
+
+    if(fastUnlocked){
+        unlocked++;
+    }
+
+}
+
+
+cabinet.innerHTML = html;
+
+
+achievementCount.textContent =
+"(" + unlocked + "/" + totalAchievements + ")";
+
+}
+
+/// Reset plan ///
 
 function resetPlan() {
 
@@ -608,6 +1160,33 @@ function loadProgress() {
         document.getElementById("mainApp").style.display = "none";
 
     }
+
+}
+
+const savedProfile = localStorage.getItem("profile");
+
+if (savedProfile === "sheffield") {
+
+    activeProfile = sheffieldProfile;
+    profileSelect.value = "sheffield";
+
+} else if (savedProfile === "chesterfield") {
+
+    activeProfile = chesterfieldProfile;
+    profileSelect.value = "chesterfield";
+
+} else {
+
+    activeProfile = defaultProfile;
+    profileSelect.value = "default";
+
+}
+
+const savedSite = localStorage.getItem("site");
+
+if (savedSite) {
+
+    siteSelect.value = savedSite;
 
 }
 
@@ -839,7 +1418,7 @@ function addTask(task) {
         prep: "<i class='fa-solid fa-flask'></i>",
         fast: "<i class='fa-solid fa-hourglass-half'></i>",
         end: "<i class='fa-solid fa-flag-checkered'></i>",
-        iron: "<i class='fa-solid fa-prescription-bottle-medical'></i>"
+        medication: "<i class='fa-solid fa-prescription-bottle-medical'></i>"
 
     };
 
@@ -856,6 +1435,8 @@ function addTask(task) {
 
 }
 
+/// ADD TASK LIST ///
+
 function addTaskList(tasks){
 
     let html = "";
@@ -867,6 +1448,112 @@ function addTaskList(tasks){
     });
 
     return html;
+
+}
+
+
+
+
+
+// Get Prep Tasks //
+
+function getPrepTasks(dayId, dayBefore, appointmentHour, appointmentDate) {
+
+
+    let tasks = [];
+
+
+    // =========================
+    // Fixed hospital schedules
+    // =========================
+
+    if (activeProfile.currentRegimen.fixedPrepTimes) {
+
+
+        activeProfile.currentRegimen.prepSchedule.forEach(function(prep, index) {
+
+
+            if (prep.dayBefore === dayBefore) {
+
+
+                tasks.push({
+
+                    id: dayId + "-prep" + index,
+
+                    text: prep.time + " " + prep.text,
+
+                    type: "prep"
+
+                });
+
+            }
+
+        });
+
+
+    }
+
+
+    // =========================
+    // Flexible schedules
+    // =========================
+
+    else {
+
+
+        // First dose
+          if (dayBefore === activeProfile.currentRegimen.firstDoseDay) {
+
+         tasks.push({
+
+        id: dayId + "-prep1",
+
+        text:
+            activeProfile.currentRegimen.firstDoseTime +
+            " Mix and drink your first dose of bowel preparation",
+
+        type: "prep"
+
+    });
+
+}
+
+
+        // Second dose
+        if (dayBefore === 0) {
+
+
+            const secondDose = new Date(appointmentDate);
+
+            secondDose.setHours(appointmentHour - 5,
+0,
+0,
+0,
+);
+
+
+            tasks.push({
+
+                id: dayId + "-prep2",
+
+                text:
+                    secondDose.toLocaleTimeString([], {
+                        hour:"2-digit",
+                        minute:"2-digit"
+                    }) +
+                    " Mix and drink your second dose of bowel preparation",
+
+                type:"prep"
+
+            });
+
+        }
+
+
+    }
+
+
+    return tasks;
 
 }
 
@@ -884,39 +1571,67 @@ function addStandardDay(date, day) {
 
     let tasks = [];
 
-    // 7 days before
-    if (day === 7) {
+    activeProfile.currentRegimen.medications.forEach(function(medication) {
 
-        tasks.push({
-            id: dayId + "-iron",
-            text: "Stop taking iron tablets (if prescribed)",
-            type: "iron"
-        });
+        if (day === medication.stopDays) {
 
-    }
+            tasks.push({
+
+                id: dayId + "-" + medication.id,
+
+                text: "Stop taking " + medication.name,
+
+                type: "medication"
+
+            });
+
+        }
+
+    });
+
+    
 
     // 5, 4, 3 and 2 days before
-    if (day <= 5) {
+    if (day > 1) {
+
+if (
+    activeProfile.currentRegimen.sennaTasks &&
+    day <= activeProfile.currentRegimen.sennaStartDays
+) {
+
+    tasks.push({
+        id: dayId + "-senna",
+        text: "Take Senna (2 tablets at night)",
+        type: "senna"
+    });
+
+}
+
+if  (
+    activeProfile.currentRegimen.waterTasks &&
+    day <= activeProfile.currentRegimen.waterStartDays
+) {
+
+    tasks.push({
+        id: dayId + "-water",
+        text: "Drink at least 1L of water",
+        type: "water"
+    });
+
+}
+             if (day <= activeProfile.currentRegimen.dietStartDays) {
 
         tasks.push({
-            id: dayId + "-senna",
-            text: "Take Senna (2 tablets at night)",
-            type: "senna"
-        });
+        id: dayId + "-diet",
+        text: "Follow a low residue diet",
+        type: "diet"
+    });
 
-        tasks.push({
-            id: dayId + "-water",
-            text: "Drink at least 1L of water",
-            type: "water"
-        });
-
-        tasks.push({
-            id: dayId + "-diet",
-            text: "Follow a low residue diet",
-            type: "diet"
-        });
-
-    }
+}
+}
+ if (tasks.length === 0) {
+    return;
+}
 
     let html = "";
 
@@ -939,11 +1654,12 @@ function addStandardDay(date, day) {
 
     }
 
-    html += addTaskList(tasks);
+html += addTaskList(tasks);
 
-    html += "</div>";
+html += "</div>";
 
-    plan.innerHTML += html;
+plan.innerHTML += html;
+
 
 }
 
@@ -957,91 +1673,150 @@ function addDayBefore(date, appointmentHour) {
         String(date.getMonth() + 1).padStart(2, "0") + "-" +
         String(date.getDate()).padStart(2, "0");
 
+
     const isToday =
         date.toDateString() === new Date().toDateString();
 
+
     let tasks = [];
+
+activeProfile.currentRegimen.medications.forEach(function(medication) {
+
+    if (medication.stopDays === 1) {
+
+        tasks.push({
+
+            id: dayId + "-" + medication.id,
+
+            text: "Stop taking " + medication.name,
+
+            type: "medication"
+
+        });
+
+    }
+
+});
 
     // Daytime appointments
     if (appointmentHour >= 8 && appointmentHour < 17) {
 
-        tasks = [
+        tasks.push({
 
-            {
-                id: dayId + "-diet",
-                text: "Low residue diet until 15:00",
-                type: "diet"
-            },
+            id: dayId + "-diet",
 
-            {
-                id: dayId + "-fast",
-                text: "15:00 No further food or milky drinks. Only drink clear fluids",
-                type: "fast"
-            },
+            text: "Low residue diet until " + activeProfile.currentRegimen.fastingTime,
 
-            {
-                id: dayId + "-prep",
-                text: "19:00 Mix and start drinking your first dose of Plenvu",
-                type: "prep"
-            },
-            {
-                id: dayId + "-prep1-water",
-                text: "Drink at least 500ml of water after your first dose of Plenvu",
-                type: "water"
-            }
+            type: "diet"
 
-        ];
+        });
 
-    }
 
-    // Evening appointments
-    else {
+        tasks.push({
 
-        tasks = [
+            id: dayId + "-fast",
 
-            {
+            text: activeProfile.currentRegimen.fastingTime + " No further food or milky drinks. Only clear fluids",
+
+            type: "fast"
+
+        });
+
+
+        tasks.push(...getPrepTasks(dayId,1,appointmentHour,date));
+
+
+        if(activeProfile.currentRegimen.waterAfterPrep){
+
+            tasks.push({
+
+                id: dayId + "-prep-water",
+
+                text:"Drink at least 500ml of water after your prep dose",
+
+                type:"water"
+
+            });
+
+        }
+
+
+    } else {
+
+
+        if(activeProfile.currentRegimen.sennaTasks){
+
+            tasks.push({
+
                 id: dayId + "-senna",
-                text: "Take Senna (2 tablets at night)",
-                type: "senna"
-            },
 
-            {
+                text:"Take Senna (2 tablets at night)",
+
+                type:"senna"
+
+            });
+
+        }
+
+
+        if(activeProfile.currentRegimen.waterTasks){
+
+            tasks.push({
+
                 id: dayId + "-water",
-                text: "Drink at least 1L of water",
-                type: "water"
-            },
 
-            {
-                id: dayId + "-diet",
-                text: "Low residue diet until 21:00",
-                type: "diet"
-            },
+                text:"Drink at least 1L of water",
 
-            {
-                id: dayId + "-fast",
-                text: "21:00 No further food or milky drinks. Only drink clear fluids",
-                type: "fast"
-            }
+                type:"water"
 
-        ];
+            });
+
+        }
+
+
+        tasks.push({
+
+            id: dayId + "-diet",
+
+            text:"Low residue diet until " + activeProfile.currentRegimen.fastingTime,
+
+            type:"diet"
+
+        });
+
+
+        tasks.push({
+
+            id: dayId + "-fast",
+
+            text:activeProfile.currentRegimen.fastingTime + " No further food or milky drinks. Only clear fluids",
+
+            type:"fast"
+
+        });
+
+
+        tasks.push(...getPrepTasks(dayId,1,appointmentHour,date));
 
     }
+
+
 
     let html = "";
 
     html += "<div class='daySection";
 
-    if (isToday) {
+
+    if(isToday){
+
         html += " todaySection";
+
     }
 
-    html += "' data-date='" + dayId + "'>";
+
+    html += "'>";
 
     html += "<h3>" + date.toDateString() + "</h3>";
-
-    if (isToday) {
-        html += "<h2 style='color:#d89b00;'><i class='fa-solid fa-star'></i> TODAY</h2>";
-    }
 
     html += addTaskList(tasks);
 
@@ -1050,7 +1825,6 @@ function addDayBefore(date, appointmentHour) {
     plan.innerHTML += html;
 
 }
-
 // Appointment day //
 
 function addAppointmentDay(date, appointmentHour) {
@@ -1061,7 +1835,11 @@ function addAppointmentDay(date, appointmentHour) {
         String(date.getDate()).padStart(2, "0");
 
     const secondDose = new Date(date);
-    secondDose.setHours(appointmentHour - 5);
+    secondDose.setHours(appointmentHour - 5,
+0,
+0,
+0,
+);
 
     const stopDrinking = new Date(date);
     stopDrinking.setHours(appointmentHour - 2);
@@ -1071,87 +1849,60 @@ function addAppointmentDay(date, appointmentHour) {
 
     let tasks = [];
 
-    if (appointmentHour >= 17) {
+tasks = getPrepTasks(dayId,0,appointmentHour,date);
 
-        tasks.push({
 
-            id: dayId + "-prep1",
-            text: "07:00 Mix and start drinking your first dose of Plenvu",
-            type: "prep"
-
-        });
-
-tasks.push({
-
-    id: dayId + "-prep1-water",
-    text: "Drink at least 500ml of water after your first dose of Plenvu",
-    type: "water"
-
-});
-
-    }
-
-tasks.push({
-
-    id: dayId + "-prep2",
-    text:
-        secondDose.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit"
-        }) +
-        " Mix and start drinking your second dose of Plenvu",
-
-    type: "prep"
-
-});
-
-tasks.push({
-
-    id: dayId + "-prep2-water",
-    text: "Drink at least 500ml of water after your second dose of Plenvu",
-    type: "water"
-
-});
+if(activeProfile.currentRegimen.waterAfterPrep){
 
     tasks.push({
-
-        id: dayId + "-final",
-        text:
-            stopDrinking.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit"
-            }) +
-            " Stop drinking. Do not eat or drink anything else until your appointment.",
-
-        type: "end"
-
+        id: dayId + "-prep-water",
+        text:"Drink at least 500ml of water after your prep dose",
+        type:"water"
     });
 
-    let html = "";
+}
 
-    html += "<div class='daySection";
 
-    if (isToday) {
-        html += " todaySection";
-    }
+tasks.push({
 
-    html += "' data-date='" + dayId + "'>";
+    id: dayId + "-final",
 
-    html += "<h3>" + date.toDateString() + "</h3>";
+    text:
+        stopDrinking.toLocaleTimeString([], {
+            hour:"2-digit",
+            minute:"2-digit"
+        }) +
+        " Stop drinking. Do not eat or drink anything else until your appointment.",
 
-    if (isToday) {
-        html += "<h2 style='color:#d89b00;'><i class='fa-solid fa-star'></i> TODAY</h2>";
-    }
+    type:"end"
 
-    html += addTaskList(tasks);
+});
 
-    html += "</div>";
 
-    plan.innerHTML += html;
+let html = "";
+
+html += "<div class='daySection";
+
+if(isToday){
+
+    html += " todaySection";
+
+}
+
+html += "'>";
+
+html += "<h3>" + date.toDateString() + "</h3>";
+
+html += addTaskList(tasks);
+
+html += "</div>";
+
+plan.innerHTML += html;
 
 }
 
 // Create Plan //
+
 
 
 function createPlan() {
@@ -1159,11 +1910,14 @@ function createPlan() {
     const newDate = appointmentDate.value;
     const savedDate = localStorage.getItem("appointmentDate");
 
-    const isNewAppointment = savedDate !== null && savedDate !== newDate;
+    const isNewAppointment =
+        savedDate !== null && savedDate !== newDate;
 
     if (isNewAppointment) {
+
         resetPlan();
         localStorage.clear();
+
     }
 
     localStorage.setItem("appointmentDate", newDate);
@@ -1171,6 +1925,27 @@ function createPlan() {
     const appointment = new Date(newDate);
     const appointmentHour = appointment.getHours();
 
+    // Select regimen
+    let regimen;
+
+    if (appointmentHour < 13) {
+
+        regimen = activeProfile.regimens.am;
+
+    } else if (appointmentHour < 17) {
+
+        regimen = activeProfile.regimens.pm;
+
+    } else {
+
+        regimen = activeProfile.regimens.evening;
+
+    }
+
+    // Save selected regimen
+    activeProfile.currentRegimen = regimen;
+
+   createPlanSummary(appointment, activeProfile);
 
     plan.innerHTML = "<h2>Your 7 Day Plan</h2>";
 
@@ -1214,6 +1989,9 @@ document.querySelectorAll("[data-type='prep']").length;
 taskTotals.fast =
 document.querySelectorAll("[data-type='fast']").length;
 
+maxPossibleScore =
+document.querySelectorAll("input[type='checkbox']").length * 10;
+
     if (!isNewAppointment) {
     loadProgress();
 }
@@ -1227,6 +2005,58 @@ document.querySelectorAll("[data-type='fast']").length;
     renderAchievements();
 }
 
+
+// plan summary //
+
+function createPlanSummary(appointment, profile) {
+
+    const summary = document.getElementById("planSummary");
+
+    summary.innerHTML = `
+
+    <div class="summaryBox">
+
+        <h2>Your Preparation Plan</h2>
+
+    <p>
+        <strong>Hospital Site:</strong>
+        ${siteSelect.value}
+    </p>
+
+        <p>
+        <strong>Appointment:</strong>
+        ${appointment.toLocaleDateString()}
+        </p>
+
+        <p>
+        <strong>Time:</strong>
+        ${appointment.toLocaleTimeString([], {
+            hour:"2-digit",
+            minute:"2-digit"
+        })}
+        </p>
+
+        <p>
+        <strong>Preparation:</strong>
+        Split dose bowel preparation
+        </p>
+
+        <p>
+        Your plan starts:
+        ${new Date(
+            appointment.getTime() - (7 * 24 * 60 * 60 * 1000)
+        ).toLocaleDateString()}
+        </p>
+
+        <small>
+        Please follow your hospital's instructions.
+        </small>
+
+    </div>
+
+    `;
+
+}
 
 //Toggle Faq//
 
@@ -1351,6 +2181,77 @@ window.addEventListener("load", function () {
 
     loadAchievements();
     updateLevel();
+
+    initialiseStarRating();
+    addFAQListeners();
+    addSubFAQListeners();
+
+    document
+    .getElementById("submitFeedback")
+    .addEventListener("click", submitFeedback);
+
+
+
+    const profileSelect = document.getElementById("profileSelect");
+
+    const savedProfile = localStorage.getItem("profile");
+
+    if (savedProfile === "default") {
+
+        activeProfile = defaultProfile;
+        profileSelect.value = "default";
+
+    } else if (savedProfile === "sheffield") {
+
+        activeProfile = sheffieldProfile;
+        profileSelect.value = "sheffield";
+
+    } else if (savedProfile === "chesterfield") {
+
+        activeProfile = chesterfieldProfile;
+        profileSelect.value = "chesterfield";
+
+    }
+
+    populateSites();
+
+    profileSelect.addEventListener("change", function () {
+
+        if (profileSelect.value === "default") {
+
+            activeProfile = defaultProfile;
+
+        } else if (profileSelect.value === "sheffield") {
+
+            activeProfile = sheffieldProfile;
+
+        } else if (profileSelect.value === "chesterfield") {
+
+            activeProfile = chesterfieldProfile;
+
+        }
+
+        populateSites();
+
+        localStorage.setItem("profile", profileSelect.value);
+        const siteSelect = document.getElementById("siteSelect");
+
+        siteSelect.addEventListener("change", function () {
+
+    localStorage.setItem("site", siteSelect.value);
+
+});
+
+
+        if (appointmentDate.value !== "") {
+
+            createPlan();
+
+        }
+
+    });
+
+
     const savedDate = localStorage.getItem("appointmentDate");
 
     if (savedDate) {
@@ -1360,17 +2261,6 @@ window.addEventListener("load", function () {
         createPlan();
 
     }
-
-});
-
-document.getElementById("submitFeedback")
-.addEventListener("click", submitFeedback);
-
-window.addEventListener("load",function(){
-
-    initialiseStarRating();
-    addFAQListeners();
-    addSubFAQListeners();
 
 });
 
